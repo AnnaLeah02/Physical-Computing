@@ -1,0 +1,26 @@
+def main() -> None:
+    print("Prime Testing:\n")
+    num = input("Enter a number >= 2 or type 'q' to quit: ")
+    while num != "q":
+         num = input(f"\n{num_handler(num)}")
+
+    print("\nOk! Thanks for playing!") 
+    return None
+
+def num_handler(num: str) -> str:
+    num = int(num)
+    if num <2:
+        num = "Only numbers >= 2. Give me another number! (or type'q' to quit): "
+        return num
+    for i in range(2, int(num/2)+1):
+        if (num % i) == 0:
+            num = f"You gave me: {num} \nThis number is not prime. Give me another number! (or type'q' to quit): "
+            return num
+        else:
+            num = str(num)
+            rev = num[::-1]
+            num = f"You gave me: {num} \nThis number is prime.\nThis number's reverse string is {rev}\n\nEnter another number (or type 'q' to quit): "
+            return num
+
+if __name__ == "__main__":
+    main()
